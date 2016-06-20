@@ -14,5 +14,6 @@ describe('File stats', () => {
         assert.equal(stats('/foo.txt', {baseDir}).hash, '2117232040');
         assert.equal(stats('/bar.txt', {baseDir, staticFileDirs}).hash, '77771753');
         assert.throws(() => stats('/bar.txt', {baseDir}).hash, /Unable to locate file/);
+        assert.throws(() => stats('/baz.txt', {baseDir, staticFileDirs}).hash, /Unable to locate file/);
     });
 });
